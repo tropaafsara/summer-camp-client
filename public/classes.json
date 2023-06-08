@@ -1,0 +1,23 @@
+[
+    {
+        "image": "https://i.ibb.co/kMgsh0h/download.jpg",
+        "name": "Piano",
+        "instructor": "Emily Johnson",
+        "available_seats": 5,
+        "price": 30
+    },
+    {
+        "image": "https://i.ibb.co/kMgsh0h/download.jpg",
+        "name": "Guitar",
+        "instructor": "Michael Thompson",
+        "available_seats": 8,
+        "price": 25
+    },
+    {
+        "image": "https://i.ibb.co/kMgsh0h/download.jpg",
+        "name": "Violin",
+        "instructor": "Sophia Davis",
+        "available_seats": 10,
+        "price": 40
+    }
+]
