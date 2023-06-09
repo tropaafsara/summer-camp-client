@@ -1,4 +1,23 @@
+import { useContext, useEffect, useState } from "react"
+import { AuthContext } from "../../providers/AuthProvider";
+import { getBookings } from "../../api/bookings";
+import TableRow from "../../components/Dashboard/TableRow";
+
 const MyClasses = () => {
+  const [classes, setClasses] = useState([])
+  const {user} = useContext(AuthContext);
+  
+   const fetchClasses=()=>{
+    getBookings(user?.email).then(data=>{
+        setClasses(data)
+    })
+  }
+  useEffect(()=>{
+    fetchClasses()
+  },[user])
+
+  console.log(classes);
+
     return (
       <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
@@ -45,7 +64,11 @@ const MyClasses = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{/* Table Data */}</tbody>
+                <tbody>{classes && classes.map(booking=><TableRow 
+                key={booking._id}
+                booking={booking}
+                fetchClasses={fetchClasses}
+                ></TableRow>)}</tbody>
               </table>
             </div>
           </div>

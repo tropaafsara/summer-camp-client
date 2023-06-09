@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Navigate, useLoaderData } from "react-router-dom"
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../providers/AuthProvider";
 import BookingModal from "../Modal/BookingModal";
 import { addBooking, updateStatus } from "../../api/bookings";
@@ -9,11 +9,13 @@ const ClassInfo = () => {
     const classData = useLoaderData()
     // console.log(classData);
     const [isOpen, setIsOpen] = useState(false);
-    const { user, role } = useContext(AuthContext)
+    const { user, role } = useContext(AuthContext);
+    const Navigate = useNavigate()
 
 
 
     const [bookingInfo, setBookingInfo] = useState({
+        student:{name:user?.displayName, email: user?.email, image:user?.photoURL},
         className: classData.className,
         seats: classData.seats,
         instructor: classData.instructor.email,
@@ -22,17 +24,18 @@ const ClassInfo = () => {
         image: classData.image
     })
     
-
+    const closeModal =() =>{
+        setIsOpen(false)
+    }
 
     const modalHandler =()=>{
         addBooking(bookingInfo)
-        .then(data=>{
-            console.log(data)
+        .then(data=>{console.log(data)
             updateStatus(classData._id, true)
             .then(data=>{
                 console.log(data);
                 toast.success('Booking Successful')
-                // navigate('/dashboard/my-bookings')
+                Navigate('/dashboard/my-classes')
                 closeModal()
             })
             .catch(err=>console.log(err))
@@ -42,9 +45,8 @@ const ClassInfo = () => {
             console.log(err)
         })
     }
-    const closeModal =() =>{
-        setIsOpen(false)
-    }
+
+    
 
     return (
         <div className='col-span-4 flex flex-col gap-8'>
