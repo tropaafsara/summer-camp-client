@@ -3,9 +3,12 @@ import { imageUpload } from '../../api/utils';
 import { AuthContext } from '../../providers/AuthProvider';
 import AddClassForm from '../../components/Forms/AddClassForm';
 import { addClass } from '../../api/classes';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddClass = () => {
     const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
     
     const [loading, setLoading] = useState(false);
     const [uploadButtonText, setUploadButtonText] = useState('Upload Image');
@@ -19,6 +22,7 @@ const AddClass = () => {
         const instructorName = event.target.instructorName.value;
         const instructorEmail = event.target.instructorEmail.value;
         const image = event.target.image.files[0];
+        setUploadButtonText('uploading....')
 
         //upload image
         imageUpload(image).then(data=>{
@@ -39,7 +43,13 @@ const AddClass = () => {
             console.log(classData);
             //post room data to server
             addClass(classData)
-            .then(data=> console.log(data))
+            .then(data=>{ 
+                console.log(data)
+                setUploadButtonText('uploaded')
+                setLoading(false)
+                toast.success('class added')
+                navigate('/dashboard/my-listings')
+            })
             .catch(err=> console.log(err))
             setLoading(false)
         })

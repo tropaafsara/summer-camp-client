@@ -42,9 +42,4 @@ export const deleteBooking = async id=>{
 
     const data = await response.json()
     return data
-    // if (response.ok) {
-    //     return { success: true };
-    //   } else {
-    //     throw new Error('Failed to delete booking');
-    //   }
 }

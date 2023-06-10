@@ -18,10 +18,28 @@ export const getAllClass = async()=>{
     const data = await response.json()
     return data
 }
-
-//get a class
+//get filtered classes
+export const getClasses = async(email)=>{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/classes/${email}`)
+    const data = await response.json()
+    return data
+}
+//get a single class
 export const getClass = async(id)=>{
     const response = await fetch(`${import.meta.env.VITE_API_URL}/class/${id}`)
+    const data = await response.json()
+    return data
+}
+
+//delete a class
+export const deleteClass = async id=>{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/classes/${id}`,{
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+        }
+    })
+
     const data = await response.json()
     return data
 }

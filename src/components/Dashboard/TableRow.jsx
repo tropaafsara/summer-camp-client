@@ -8,9 +8,11 @@ const TableRow = ({ booking , fetchClasses}) => {
 
 
     let [isOpen, setIsOpen] =useState(false)
+    
     function closeModal(){
         setIsOpen(false)
     }
+    
 
     const modalHandler = (id)=>{
         deleteBooking(id).then(data=>{

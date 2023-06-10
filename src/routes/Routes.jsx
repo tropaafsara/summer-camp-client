@@ -9,6 +9,7 @@ import Classes from "../components/Shared/Classes/Classes";
 import ClassInfo from "../components/ClassInfo/ClassInfo";
 import { getClass } from "../api/classes";
 import MyClasses from "../pages/Dashboard/MyClasses";
+import MyListings from "../pages/Dashboard/MyListings";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
         {
           path: '/dashboard/my-classes',
           element: <MyClasses></MyClasses>
+        },
+        {
+          path: '/dashboard/my-listings',
+          element: <MyListings></MyListings>
         },
       ]
     },
