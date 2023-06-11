@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../providers/AuthProvider";
-import { getBookings } from "../../api/bookings";
+import { getInstructorBookings } from "../../api/bookings";
 import TableRow from "../../components/Dashboard/TableRow";
 import EmptyState from "../../components/Shared/EmptyState";
 
-const MyClasses = () => {
+const ManageBookings = () => {
   const [classes, setClasses] = useState([])
   const {user} = useContext(AuthContext);
   
    const fetchClasses=()=>{
-    getBookings(user?.email).then(data=>{
+    getInstructorBookings(user?.email).then(data=>{
         setClasses(data)
     })
   }
@@ -21,9 +21,8 @@ const MyClasses = () => {
 
     return (
       <>
-      {
-        classes && Array.isArray(classes) && classes.length>0 ? (
-          <div className='container mx-auto px-4 sm:px-8'>
+      {classes && Array.isArray(classes) && classes.length>0 ? (
+        <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
           <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
             <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
@@ -78,14 +77,18 @@ const MyClasses = () => {
           </div>
         </div>
       </div>
-        ): (<EmptyState 
-          message={'You did not book any class yet!'} 
-          address={'/'} label={'Browse Classes'}
-          ></EmptyState>)
-      }
+      ) : 
+      
+      
+      
+      <EmptyState
+      message={'No Booking Data Available!'} 
+          address={'/dashboard/manage-bookings'} label={'Go Back'}
+      ></EmptyState>}
+      
       
       </>
     )
   }
   
-  export default MyClasses
+  export default ManageBookings

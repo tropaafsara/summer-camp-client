@@ -10,6 +10,9 @@ import ClassInfo from "../components/ClassInfo/ClassInfo";
 import { getClass } from "../api/classes";
 import MyClasses from "../pages/Dashboard/MyClasses";
 import MyListings from "../pages/Dashboard/MyListings";
+import ManageBookings from "../pages/Dashboard/ManageBookings";
+import ManageClasses from "../pages/Dashboard/ManageClasses";
+import ManageUsers from "../pages/Dashboard/ManageUsers";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +48,10 @@ export const router = createBrowserRouter([
       element: <DashboardLayout></DashboardLayout>,
       children:[
         {
+          path: '/dashboard',
+          element: <MyClasses></MyClasses>
+        },
+        {
           path: '/dashboard/add-class',
           element: <AddClass></AddClass>
         },
@@ -55,6 +62,18 @@ export const router = createBrowserRouter([
         {
           path: '/dashboard/my-listings',
           element: <MyListings></MyListings>
+        },
+        {
+          path: '/dashboard/manage-bookings',
+          element: <ManageBookings></ManageBookings>
+        },
+        {
+          path: '/dashboard/manage-classes',
+          element: <ManageClasses></ManageClasses>
+        },
+        {
+          path: '/dashboard/manage-users',
+          element: <ManageUsers></ManageUsers>
         },
       ]
     },

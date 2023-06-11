@@ -44,6 +44,7 @@ const SignUp = () => {
 
         createUser(email, password)
           .then(result => {
+
             updateUserProfile(name, imageUrl)
               .then(() => {
                 toast.success('Signup successful')
