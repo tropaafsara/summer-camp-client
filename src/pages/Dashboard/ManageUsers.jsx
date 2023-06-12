@@ -21,7 +21,7 @@ const ManageUsers = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: `You've added an Admin !`,
+                    title: `You've added ${user.name} as an Admin !`,
                     showConfirmButton: false,
                     timer: 1500
                   })
@@ -41,7 +41,7 @@ const ManageUsers = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: `You've added an Instructor !`,
+                    title: `You've added ${user.name} as an Instructor !`,
                     showConfirmButton: false,
                     timer: 1500
                   })
@@ -103,10 +103,23 @@ const ManageUsers = () => {
         <button onClick={()=> handleMakeAdmin(user._id)} className="btn btn-ghost btn-xs">Make Admin</button>
         }</td> */}
         <th>
-        {user.role == 'admin' ? '' : user.role === 'Instructor' ? ''
+        {user.role == 'admin' ? (<>
+         <div className="flex flex-col gap-2 ">
+         <button disabled onClick={()=> handleMakeAdmin(user)} className="rounded btn-xs bg-gray-200 text-white">Make Admin</button>
+        <button onClick={()=> handleMakeInstructor(user)} className="rounded btn-xs bg-fuchsia-800 text-white">Make Instructor</button>
+        
+         </div>
+        </>) : user.role === 'instructor' ? (<>
+         <div className="flex flex-col gap-2">
+         <button onClick={()=> handleMakeAdmin(user)} className="rounded btn-xs bg-fuchsia-800 text-white">Make Admin</button>
+        <button disabled onClick={()=> handleMakeInstructor(user)} className="rounded btn-xs bg-gray-200 text-white">Make Instructor</button>
+         </div>
+        </>)
    : (<>
-        <button onClick={()=> handleMakeAdmin(user)} className="btn btn-ghost btn-xs">Make Admin</button>
-        <button onClick={()=> handleMakeInstructor(user)} className="btn btn-ghost btn-xs">Make Instructor</button>
+        <div className="flex flex-col gap-2">
+        <button onClick={()=> handleMakeAdmin(user)} className="rounded btn-xs bg-fuchsia-800 text-white">Make Admin</button>       
+        <button onClick={()=> handleMakeInstructor(user)} className="rounded btn-xs bg-fuchsia-800 text-white">Make Instructor</button>        
+        </div>
         
         </>)
         
