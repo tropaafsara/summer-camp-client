@@ -3,14 +3,14 @@ import Swal from "sweetalert2";
 
 const ManageUsers = () => {
     const {data: users =[], refetch} = useQuery(['users'], async ()=>{
-        const res = await fetch('http://localhost:9000/users')
+        const res = await fetch('https://summer-camp-school-server-peach.vercel.app/users')
         return res.json()
     })
     
 
     const handleMakeAdmin = user =>{
         
-        fetch(`http://localhost:9000/users/admin/${user._id}`, {
+        fetch(`https://summer-camp-school-server-peach.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -30,7 +30,7 @@ const ManageUsers = () => {
     }
     const handleMakeInstructor = user =>{
         
-        fetch(`http://localhost:9000/users/instructor/${user._id}`, {
+        fetch(`https://summer-camp-school-server-peach.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -67,7 +67,7 @@ const ManageUsers = () => {
             <input type="checkbox" className="checkbox" />
           </label>
         </th>
-        <th>Name</th>
+        <th> Name</th>
         <th>Email</th>
         <th>Role</th>
         <th>Action</th>
@@ -87,11 +87,11 @@ const ManageUsers = () => {
           <div className="flex items-center space-x-3">
             <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
-                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                <img src={user.imageUrl} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>
-              <div className="font-bold">{user.email}</div>
+              <div className="font-bold">{user.name}</div>
             </div>
           </div>
         </td>
@@ -103,7 +103,7 @@ const ManageUsers = () => {
         <button onClick={()=> handleMakeAdmin(user._id)} className="btn btn-ghost btn-xs">Make Admin</button>
         }</td> */}
         <th>
-        {user.role == 'admin' ? 'admin' : user.role === 'Instructor' ? 'Instructor'
+        {user.role == 'admin' ? '' : user.role === 'Instructor' ? ''
    : (<>
         <button onClick={()=> handleMakeAdmin(user)} className="btn btn-ghost btn-xs">Make Admin</button>
         <button onClick={()=> handleMakeInstructor(user)} className="btn btn-ghost btn-xs">Make Instructor</button>

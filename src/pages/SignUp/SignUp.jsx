@@ -21,11 +21,11 @@ const SignUp = () => {
   // Handle user registration
   const handleSubmit = event => {
     event.preventDefault()
+    // const formData = new FormData(event.target);
+    // const name = formData.get('name')
     const name = event.target.name.value
     const email = event.target.email.value
     const password = event.target.password.value
-
-    // Image Upload
     const image = event.target.image.files[0]
     const formData = new FormData()
     formData.append('image', image)
@@ -47,8 +47,13 @@ const SignUp = () => {
 
             updateUserProfile(name, imageUrl)
               .then(() => {
-                toast.success('Signup successful')
-                saveUser(result.user)
+                // toast.success('Signup successful')
+                // saveUser(result.user)
+                saveUser({
+                  email: result.user.email,
+                  name: name,
+                  imageUrl: imageUrl
+                });
                 navigate(from, { replace: true })
               })
               .catch(err => {
@@ -71,6 +76,7 @@ const SignUp = () => {
 
     return
   }
+
 
   // Handle google signin
   const handleGoogleSignIn = () => {
@@ -100,7 +106,7 @@ const SignUp = () => {
         >
           <div className='space-y-4'>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='name' className='block mb-2 text-sm'>
                 Name
               </label>
               <input
@@ -158,13 +164,8 @@ const SignUp = () => {
           <div>
             <button
               type='submit'
-              className='bg-rose-500 w-full rounded-md py-3 text-white'
-            >
-              {loading ? (
-                <TbFidgetSpinner className='m-auto animate-spin' size={24} />
-              ) : (
-                'Continue'
-              )}
+              className='bg-fuchsia-800 w-full rounded-md py-3 text-white'
+            >SignUp
             </button>
           </div>
         </form>

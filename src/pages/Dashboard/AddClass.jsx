@@ -26,7 +26,6 @@ const AddClass = () => {
 
         //upload image
         imageUpload(image).then(data=>{
-            // console.log(data.data.display_url);
              const classData ={
                 image: data.data.display_url,
                 className,

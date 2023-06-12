@@ -111,13 +111,9 @@ const Login = () => {
           <div>
             <button
               type='submit'
-              className='bg-rose-500 w-full rounded-md py-3 text-white'
+              className='bg-fuchsia-800 w-full rounded-md py-3 text-white'
             >
-              {loading ? (
-                <TbFidgetSpinner className='m-auto animate-spin' size={24} />
-              ) : (
-                'Continue'
-              )}
+              Login
             </button>
           </div>
         </form>
@@ -130,7 +126,7 @@ const Login = () => {
           </button>
         </div>
         <div className='flex items-center pt-4 space-x-1'>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700 px-3'></div>
           <p className='px-3 text-sm dark:text-gray-400'>
             Login with social accounts
           </p>

@@ -1,10 +1,13 @@
 import React from 'react';
+import PopularClasses from './PopularClasses';
+import PopularInstructors from './PopularInstructors';
 
 
 const Home = () => {
     return (
         <div>
-           <h1>home</h1>
+           <PopularClasses></PopularClasses>
+           <PopularInstructors></PopularInstructors>
         </div>
     );
 };

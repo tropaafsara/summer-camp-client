@@ -35,7 +35,7 @@ const MyListings = () => {
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      Title
+                      Class Name
                     </th>
                     <th
                       scope='col'
@@ -86,7 +86,7 @@ const MyListings = () => {
         </div>
       </div>
       ): <EmptyState
-      message={'You have not booked any classes!'} 
+      message={'You have not added any classes!'} 
           address={'/dashboard/add-class'} label={'Add Class'}
       ></EmptyState>}</>
       

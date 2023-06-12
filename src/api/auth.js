@@ -13,6 +13,7 @@ export const saveUser = user =>{
             'content-type': 'application/json',
         },
         body: JSON.stringify(currentUser),
+        
     })
     .then(res=>res.json())
     .then(data => console.log(data))

@@ -24,7 +24,7 @@ const HostMenu = () => {
                     }`
                   }
                 >
-                  <BsFillHouseAddFill className='w-5 h-5' />
+                  {/* <BsFillHouseAddFill className='w-5 h-5' /> */}
 
                   <span className='mx-4 font-medium'>Add Class</span>
                 </NavLink>
@@ -36,7 +36,7 @@ const HostMenu = () => {
           }`
         }
       >
-        <MdHomeWork className='w-5 h-5' />
+        {/* <MdHomeWork className='w-5 h-5' /> */}
 
         <span className='mx-4 font-medium'>My Listings</span>
       </NavLink>
@@ -48,7 +48,7 @@ const HostMenu = () => {
           }`
         }
       >
-        <MdOutlineManageHistory className='w-5 h-5' />
+        {/* <MdOutlineManageHistory className='w-5 h-5' /> */}
 
         <span className='mx-4 font-medium'> Manage Bookings</span>
       </NavLink>

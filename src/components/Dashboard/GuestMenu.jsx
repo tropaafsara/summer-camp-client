@@ -33,7 +33,7 @@ const GuestMenu = () => {
           }`
         }
       >
-        <BsFingerprint className='w-5 h-5' />
+        {/* <BsFingerprint className='w-5 h-5' /> */}
 
         <span className='mx-4 font-medium'>My Classes</span>
       </NavLink>

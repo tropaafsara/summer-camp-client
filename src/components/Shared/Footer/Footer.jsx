@@ -1,11 +1,34 @@
+
 const Footer = () => {
     return (
-      <footer className='px-4 divide-y  text-gray-800 relative bottom-0 left-0'>
-        <div className='py-6 text-sm text-center text-gray-400'>
-          © 2023 AirCNC Inc. All rights reserved.
+        <div className=''>
+            <footer className="footer p-10 bg-base-200 text-base-content  text-white ">
+            <div>
+                <p>Melody Masters<br />Reliable  since 2010</p>
+            </div>
+            <div>
+                <span className="footer-title">Products</span>
+                <a className="link link-hover">Piano Course</a>
+                <a className="link link-hover">Guitar Course</a>
+                <a className="link link-hover">Guitar Course</a>
+                <a className="link link-hover">Guitar Course</a>
+            </div>
+            <div>
+                <span className="footer-title">Company</span>
+                <a className="link link-hover">About us</a>
+                <a className="link link-hover">Contact</a>
+                <a className="link link-hover">Career</a>
+                <a className="link link-hover">Press kit</a>
+            </div>
+            <div>
+                <span className="footer-title">Legal</span>
+                <a className="link link-hover">Terms of use</a>
+                <a className="link link-hover">Privacy policy</a>
+                <a className="link link-hover">Cookie policy</a>
+            </div>
+        </footer>
         </div>
-      </footer>
-    )
-  }
-  
-  export default Footer
+    );
+};
+
+export default Footer;

@@ -52,9 +52,9 @@ const AdminMenu = () => {
       email={user?.email}
       closeModal={closeModal}></HostModal> */}
 
-      <NavLink to='manage-classes'>Manage Classes</NavLink>
-      <NavLink to='manage-users'>Manage Users</NavLink>
-
+      <NavLink to='manage-classes' className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'>Manage Classes</NavLink>
+      <NavLink to='manage-users' className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'>Manage Users</NavLink>
+      
     </>
   )
 }

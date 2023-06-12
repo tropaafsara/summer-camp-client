@@ -13,6 +13,8 @@ import MyListings from "../pages/Dashboard/MyListings";
 import ManageBookings from "../pages/Dashboard/ManageBookings";
 import ManageClasses from "../pages/Dashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
+import PrivateRoute from "./PrivateRoute";
+import PopularInstructors from "../pages/Home/PopularInstructors";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +28,10 @@ export const router = createBrowserRouter([
         {
           path: '/classes',
           element: <Classes></Classes>
+        },
+        {
+          path: '/instructors',
+          element: <PopularInstructors></PopularInstructors>
         },
         {
           path: '/class/:id',
@@ -45,7 +51,7 @@ export const router = createBrowserRouter([
     
     {
       path: '/dashboard',
-      element: <DashboardLayout></DashboardLayout>,
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
       children:[
         {
           path: '/dashboard',
