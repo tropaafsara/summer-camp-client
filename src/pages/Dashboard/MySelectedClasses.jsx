@@ -1,28 +1,40 @@
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../providers/AuthProvider";
-import { getBookings } from "../../api/bookings";
-import TableRow from "../../components/Dashboard/TableRow";
 import EmptyState from "../../components/Shared/EmptyState";
+import TableRowTwo from "../../components/Dashboard/TableRowTwo";
+import { getAllClass, getClasses, getSelectedClasses } from "../../api/classes";
+import useClass from "../../hooks/useClass";
+import Swal from "sweetalert2";
 
-const MyClasses = () => {
-  const [classes, setClasses] = useState([])
+const MySelectedClasses = () => {
+    const [selectedClasses, refetch] = useClass()
   const {user} = useContext(AuthContext);
-  
-   const fetchClasses=()=>{
-    getBookings(user?.email).then(data=>{
-        setClasses(data)
-    })
-  }
-  useEffect(()=>{
-    fetchClasses()
-  },[user])
 
-  console.log(classes);
+
+  //  const fetchClassesTwo=()=>{
+  //   getSelectedClasses(user?.email).then(data=>{
+  //     setSelectedClasses(data);
+  //   })
+  // }
+  // useEffect(()=>{
+  //   fetchClassesTwo()
+  // },[user])
+
+  // console.log(selectedClasses);
+
+
+
+
+
+
 
     return (
       <>
+      <h1>Total selected classes : {selectedClasses?.length || 0}</h1>
       {
-        classes && Array.isArray(classes) && classes.length>0 ? (
+        
+        selectedClasses && Array.isArray(selectedClasses) && selectedClasses.length>0 ? (
+            
           <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
           <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
@@ -52,33 +64,40 @@ const MyClasses = () => {
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      Transaction Id
-                    </th>
-                    {/* <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      From
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      To
+                      Payment
                     </th>
                     <th
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
                       Action
-                    </th> */}
+                    </th>
                   </tr>
                 </thead>
-                <tbody>{classes && classes.map(booking=><TableRow 
-                key={booking._id}
-                booking={booking}
-                fetchClasses={fetchClasses}
-                ></TableRow>)}</tbody>
+                <tbody>
+                    
+
+
+
+
+
+                    
+                    
+                    {selectedClasses && selectedClasses.map(classes=><TableRowTwo
+                key={classes._id}
+                classes={classes}
+                refetch={refetch}
+                // fetchClassesTwo={fetchClassesTwo}
+                ></TableRowTwo>)}
+                
+                
+                
+                
+                
+                
+                
+                
+                </tbody>
               </table>
             </div>
           </div>
@@ -94,4 +113,4 @@ const MyClasses = () => {
     )
   }
   
-  export default MyClasses
+  export default MySelectedClasses

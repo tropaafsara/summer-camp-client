@@ -1,17 +1,67 @@
 import { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { AuthContext } from '../../../providers/AuthProvider'
+import Swal from 'sweetalert2'
+import { getClasses } from '../../../api/classes'
 
 const Card = ({ cls, classData }) => {
  
-  console.log(classData);
+  // console.log(classData);
+  const {user} = useContext(AuthContext)
+  const { className, image, price, instructorName, _id, seats } = cls;
 
+
+
+    const location = useLocation();
+
+    const handleSelectClass = cls => {
+        console.log(cls);
+        if(user && user.email){
+            const selectedClasses = {_id,  seats, className, image, price, instructorName, email:user.email}
+            fetch('https://summer-camp-school-server-peach.vercel.app/selectedClasses', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedClasses)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    // refetch(); // refetch cart to update the number of items in the cart
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class Selected, Go to Dashboard',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Please login to order the food',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Navigate('/login', {state: {from: location}})
+                }
+              })
+        }
+    }
 
 
 
   return (
    
-    <Link to={`/class/${cls._id}`} className='col-span-1 cursor-pointer group'>
+    <div>
+    {/* <Link to={`/class/${cls._id}`} className='col-span-1 cursor-pointer group'> */}
+    <div className='col-span-1 cursor-pointer group'>
       <div className='flex flex-col gap-2 w-full'>
         <div
           className='
@@ -54,8 +104,11 @@ const Card = ({ cls, classData }) => {
           
         </div>
         {/* <BookingModal isOpen={isOpen}></BookingModal> */}
+        
       </div>
-    </Link>
+    </div>
+    <button onClick={()=>handleSelectClass(cls)}>select</button>
+    </div>
   )
 }
 

@@ -1,7 +1,4 @@
 
-
-
-
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -9,8 +6,10 @@ import './CheckoutForm.css'
 import useAxiosSecure from '../../hooks/useAxiosSecure'
 import useAuth from '../../hooks/useAuth'
 import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { updateStatus } from '../../api/bookings'
+import axios from 'axios';
+
 import { ImSpinner9 } from 'react-icons/im'
 const CheckoutForm = ({ bookingInfo, closeModal }) => {
   const navigate = useNavigate()
@@ -134,8 +133,8 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
           </button>
           <button
             type='submit'
-            // disabled={!stripe || !clientSecret || processing}
-            disabled={!stripe}
+            disabled={!stripe || !clientSecret || processing}
+            
             className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
           >
             {processing ? (
@@ -152,3 +151,23 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
 }
 
 export default CheckoutForm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

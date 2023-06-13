@@ -30,7 +30,6 @@ export const getBookings = async email=>{
     const bookings = await response.json()
     return bookings
 }
-//get all bookings for a user by email
 
 
 //delete a booking

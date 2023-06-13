@@ -42,24 +42,23 @@ const TableRow = ({ booking , fetchClasses}) => {
             </div>
           </div>
           <div className='ml-3'>
-            <p className='text-gray-900 whitespace-no-wrap'>{booking?.title}</p>
+            <p className='text-gray-900 whitespace-no-wrap'>{booking?.className}</p>
           </div>
         </div>
       </td>
+      
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>{booking?.location}</p>
+        <p className='text-gray-900 whitespace-no-wrap'>{booking?.instructor}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>${booking?.price}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>${booking?.price}</p>
+        <p className='text-gray-900 whitespace-no-wrap'>{booking?.transactionId}</p>
       </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>${booking?.price}</p>
-      </td>
+      
      
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <span onClick={()=>setIsOpen(true)} className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
           <span
             aria-hidden='true'
@@ -68,7 +67,7 @@ const TableRow = ({ booking , fetchClasses}) => {
           <span className='relative'>Cancel</span>
         </span>
         <DeleteModal isOpen={isOpen} closeModal={closeModal} modalHandler={modalHandler} id={booking._id}></DeleteModal>
-      </td>
+      </td> */}
     </tr>
   )
 }

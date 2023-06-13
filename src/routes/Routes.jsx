@@ -15,6 +15,7 @@ import ManageClasses from "../pages/Dashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import PopularInstructors from "../pages/Home/PopularInstructors";
+import MySelectedClasses from "../pages/Dashboard/MySelectedClasses";
 
 export const router = createBrowserRouter([
     {
@@ -33,11 +34,11 @@ export const router = createBrowserRouter([
           path: '/instructors',
           element: <PopularInstructors></PopularInstructors>
         },
-        {
-          path: '/class/:id',
-          element: <ClassInfo></ClassInfo>,
-          loader: ({params}) => getClass(params.id)
-        },
+        // {
+        //   path: '/class/:id',
+        //   element: <ClassInfo></ClassInfo>,
+        //   loader: ({params}) => getClass(params.id)
+        // },
       ]
     },
     {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
         {
           path: '/dashboard/my-classes',
           element: <MyClasses></MyClasses>
+        },
+        {
+          path: '/dashboard/my-selected-classes',
+          element: <MySelectedClasses></MySelectedClasses>
         },
         {
           path: '/dashboard/my-listings',

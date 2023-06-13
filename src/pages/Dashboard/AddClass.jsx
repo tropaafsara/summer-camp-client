@@ -38,6 +38,7 @@ const AddClass = () => {
                     image: user?.photoUrl,
                     email: user?.email,
                 },
+                status:'pending'
             }
             console.log(classData);
             //post room data to server

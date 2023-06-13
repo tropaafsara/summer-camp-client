@@ -47,3 +47,25 @@ export const deleteClass = async id=>{
     const data = await response.json()
     return data
 }
+//delete selected class
+export const deleteSelectedClass = async id=>{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/selectedClasses/${id}`,{
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+        }
+    })
+
+    const data = await response.json()
+    return data
+}
+//get selected classes
+export const getSelectedClasses = async(email)=>{
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/selectedClasses?email=${email}`,{
+        headers:{
+            authorization: `bearer ${localStorage.getItem('access-token')}`
+        }
+    })
+    const data = await response.json()
+    return data
+}

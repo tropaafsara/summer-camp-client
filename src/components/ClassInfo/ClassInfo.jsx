@@ -18,7 +18,7 @@ const ClassInfo = () => {
         student:{name:user?.displayName, email: user?.email, image:user?.photoURL},
         className: classData.className,
         seats: classData.seats,
-        instructor: classData.instructor.email,
+        instructor: classData.instructorName,
         price: classData.price,
         classId: classData._id,
         image: classData.image
