@@ -24,7 +24,7 @@ const TableRowTwo = ({ classes, refetch }) => {
     instructor: classes.instructorEmail,
     instructorName: classes.instructorName,
     price: classes.price,
-    classId: classes._id,
+    classId: classes.classid,
     image: classes.image
   })
 
@@ -39,6 +39,9 @@ const TableRowTwo = ({ classes, refetch }) => {
         updateStatus(classes._id, true)
           .then(data => {
             console.log(data);
+
+
+
             toast.success('Booking Successful')
             navigate('/dashboard/my-classes')
             closeModal()

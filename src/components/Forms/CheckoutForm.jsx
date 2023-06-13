@@ -23,6 +23,7 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
 
   //   1.  get clientSecret from backend
   useEffect(() => {
+    console.log(bookingInfo);
     if (bookingInfo.price > 0) {
       axiosSecure
         .post('/create-payment-intent', { price: bookingInfo.price })

@@ -17,8 +17,10 @@ const Card = ({ cls, classData }) => {
 
   const handleSelectClass = cls => {
     console.log(cls);
+     
     if (user && user.email) {
-      const selectedClasses = {  seats, className, image, price, instructorName, email: user.email,instructorEmail }
+      // const selectedClasses = { classid : cls._id, seats, className, image, price, instructorName, email: user.email,instructorEmail }
+      const selectedClasses = { classid : cls._id, seats: parseFloat(cls.seats), className, image, price, instructorName, email: user.email,instructorEmail }
       fetch('https://summer-camp-school-server-peach.vercel.app/selectedClasses', {
       
         method: 'POST',
