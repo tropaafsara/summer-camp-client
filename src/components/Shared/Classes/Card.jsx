@@ -9,7 +9,7 @@ const Card = ({ cls, classData }) => {
 
   // console.log(classData);
   const { user } = useContext(AuthContext)
-  const { className, image, price, instructorName, _id, seats, instructorEmail } = cls;
+  const { className, image, price, instructorName, seats, instructorEmail } = cls;
   // const [selectedClasses, refetch] = useClass()
 
 
@@ -18,8 +18,9 @@ const Card = ({ cls, classData }) => {
   const handleSelectClass = cls => {
     console.log(cls);
     if (user && user.email) {
-      const selectedClasses = { _id, seats, className, image, price, instructorName, email: user.email,instructorEmail }
+      const selectedClasses = {  seats, className, image, price, instructorName, email: user.email,instructorEmail }
       fetch('https://summer-camp-school-server-peach.vercel.app/selectedClasses', {
+      
         method: 'POST',
         headers: {
           'content-type': 'application/json'
