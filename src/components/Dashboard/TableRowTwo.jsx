@@ -21,7 +21,8 @@ const TableRowTwo = ({ classes, refetch }) => {
     student: { name: user?.displayName, email: user?.email, image: user?.photoURL },
     className: classes.className,
     seats: classes.seats,
-    instructor: classes.instructorName,
+    instructor: classes.instructorEmail,
+    instructorName: classes.instructorName,
     price: classes.price,
     classId: classes._id,
     image: classes.image

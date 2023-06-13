@@ -11,22 +11,6 @@ const MySelectedClasses = () => {
   const {user} = useContext(AuthContext);
 
 
-  //  const fetchClassesTwo=()=>{
-  //   getSelectedClasses(user?.email).then(data=>{
-  //     setSelectedClasses(data);
-  //   })
-  // }
-  // useEffect(()=>{
-  //   fetchClassesTwo()
-  // },[user])
-
-  // console.log(selectedClasses);
-
-
-
-
-
-
 
     return (
       <>

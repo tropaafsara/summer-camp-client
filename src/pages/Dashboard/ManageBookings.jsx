@@ -3,25 +3,29 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { getInstructorBookings } from "../../api/bookings";
 import TableRow from "../../components/Dashboard/TableRow";
 import EmptyState from "../../components/Shared/EmptyState";
+import useClass from "../../hooks/useClass";
 
 const ManageBookings = () => {
-  const [classes, setClasses] = useState([])
+  const [bookings, setBookings] = useState([])
+  // const [selectedClasses, refetch] = useClass()
   const {user} = useContext(AuthContext);
   
    const fetchClasses=()=>{
     getInstructorBookings(user?.email).then(data=>{
-        setClasses(data)
+      setBookings(data)
     })
   }
   useEffect(()=>{
     fetchClasses()
   },[user])
 
-  console.log(classes);
+  console.log(bookings);
 
     return (
       <>
-      {classes && Array.isArray(classes) && classes.length>0 ? (
+
+
+      {bookings && Array.isArray(bookings) && bookings.length>0 ? (
         <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
           <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
@@ -67,7 +71,7 @@ const ManageBookings = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{classes && classes.map(booking=><TableRow 
+                <tbody>{bookings && bookings.map(booking=><TableRow 
                 key={booking._id}
                 booking={booking}
                 fetchClasses={fetchClasses}
