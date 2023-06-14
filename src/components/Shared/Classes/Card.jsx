@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Link, Navigate, useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../providers/AuthProvider'
 import Swal from 'sweetalert2'
 import { getClasses } from '../../../api/classes'
@@ -10,12 +10,16 @@ const Card = ({ cls, classData }) => {
   // console.log(classData);
   const { user } = useContext(AuthContext)
   const { className, image, price, instructorName, seats, instructorEmail,totalStudents } = cls;
-  // const [selectedClasses, refetch] = useClass()
-
-
+ const navigate = useNavigate()
   const location = useLocation();
 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   const handleSelectClass = cls => {
+    if (seats === 0) {
+      setIsButtonDisabled(true);
+      return;
+    }
     console.log(cls);
      
     if (user && user.email) {
@@ -45,7 +49,7 @@ const Card = ({ cls, classData }) => {
     }
     else {
       Swal.fire({
-        title: 'Please login to order the food',
+        title: 'Please login select classes',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -53,19 +57,21 @@ const Card = ({ cls, classData }) => {
         confirmButtonText: 'Login now!'
       }).then((result) => {
         if (result.isConfirmed) {
-          Navigate('/login', { state: { from: location } })
+          navigate('/login', { state: { from: location } })
         }
       })
     }
   }
 
 
+  const cardClassName = `col-span-1 cursor-pointer group p-4 ${seats === 0 ? 'bg-red-300' : ''}`;
 
   return (
 
-    <div>
+    <div className={cardClassName}>
       {/* <Link to={`/class/${cls._id}`} className='col-span-1 cursor-pointer group'> */}
-      <div className='col-span-1 cursor-pointer group'>
+     
+      <div >
         <div className='flex flex-col gap-2 w-full'>
           <div
             className='
@@ -109,10 +115,15 @@ const Card = ({ cls, classData }) => {
             <div className='font-semibold'>$ {cls.price}</div>
 
           </div>
-
+          
+        </div>
+        <div className="flex justify-end">
+        <button onClick={() => handleSelectClass(cls)} className='rounded bg-slate-600 text-white px-3 flex justify-center '>select</button>
+    
         </div>
       </div>
-      <button onClick={() => handleSelectClass(cls)} >select</button>
+      {/* <button onClick={() => handleSelectClass(cls)} className='rounded bg-slate-600 text-white px-2 flex justify-center '>select</button> */}
+    
     </div>
   )
 }

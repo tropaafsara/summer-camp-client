@@ -18,8 +18,8 @@ const PopularInstructors = () => {
     return (
         
         <div>
-            <h1 className='text-center text-3xl font-bold mb-7'>Popular Instructors </h1>
-            <hr />
+            <h1 className='text-center text-3xl font-bold mb-7'>Meet Our Instructors </h1>
+           
             <div className='grid lg:grid-cols-3 md:grid-cols-2 ms-10 gap-6 mt-8'>
             {
                 // instructors.slice(0, 6).map(item=><InstructorCard

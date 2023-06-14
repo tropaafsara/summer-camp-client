@@ -14,7 +14,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Harmonize Your Melodies: Join Our Enchanting Music Class!</h2>
                         <p>Unleash your musical potential in our captivating music class! Whether you're a beginner or an experienced musician, our expert instructors will guide you through the fascinating world of melodies, rhythms, and harmonies. Discover the joy of playing an instrument, developing your vocal skills, or exploring the art of composition.</p>
                         <div>
-                            <button className="btn btn-ghost  bg-sky-600 hover:bg-cyan-500  mt-5 text-white mr-5">Discover More</button>
+                            <button className="btn btn-ghost  bg-fuchsia-800 hover:bg-purple-800  mt-5 text-white mr-5">Discover More</button>
                              </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Harmonize Your Melodies: Join Our Enchanting Music Class!</h2>
                         <p>Unleash your musical potential in our captivating music class! Whether you're a beginner or an experienced musician, our expert instructors will guide you through the fascinating world of melodies, rhythms, and harmonies. Discover the joy of playing an instrument, developing your vocal skills, or exploring the art of composition.</p>
                         <div>
-                            <button className="btn btn-ghost  bg-sky-600 hover:bg-cyan-500  mt-5 text-white mr-5">Discover More</button>
+                            <button className="btn btn-ghost  bg-fuchsia-800 hover:bg-purple-800  mt-5 text-white mr-5">Discover More</button>
                             
                         </div>
                     </div>
@@ -47,7 +47,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Harmonize Your Melodies: Join Our Enchanting Music Class!</h2>
                         <p>Unleash your musical potential in our captivating music class! Whether you're a beginner or an experienced musician, our expert instructors will guide you through the fascinating world of melodies, rhythms, and harmonies. Discover the joy of playing an instrument, developing your vocal skills, or exploring the art of composition.</p>
                         <div>
-                            <button className="btn btn-ghost  bg-sky-600 hover:bg-cyan-500  mt-5 text-white mr-5">Discover More</button>
+                            <button className="btn btn-ghost  bg-fuchsia-800 hover:bg-purple-800  mt-5 text-white mr-5">Discover More</button>
                              </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Harmonize Your Melodies: Join Our Enchanting Music Class!</h2>
                         <p> Unleash your musical potential in our captivating music class! Whether you're a beginner or an experienced musician, our expert instructors will guide you through the fascinating world of melodies, rhythms, and harmonies. Discover the joy of playing an instrument, developing your vocal skills, or exploring the art of composition.</p>
                         <div>
-                            <button className="btn btn-ghost  bg-sky-600 hover:bg-cyan-500  mt-5 text-white mr-5">Discover More</button>
+                            <button className="btn btn-ghost  bg-fuchsia-800 hover:bg-purple-800  mt-5 text-white mr-5">Discover More</button>
                             </div>
                     </div>
                 </div>

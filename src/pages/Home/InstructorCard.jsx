@@ -22,7 +22,7 @@ const InstructorCard = ({item}) => {
     <h2 className="card-title">Instructor Name : {name}</h2>
     <p>{email}</p>
     <div className="card-actions">
-      <button className="btn btn-primary ">See Classes</button>
+      <button className="btn  bg-fuchsia-800 hover:bg-purple-800 text-white ">See Classes</button>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div className=''>
-            <footer className="footer p-10 bg-base-200 text-base-content  text-white ">
+            <footer className="footer p-10 bg-base-200 text-base-content  text-black ">
             <div>
                 <p>Melody Masters<br />Reliable  since 2010</p>
             </div>
