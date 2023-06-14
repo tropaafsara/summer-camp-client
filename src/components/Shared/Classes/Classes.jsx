@@ -23,25 +23,13 @@ const classData = useLoaderData();
     getAllClass()
       .then(data => {
         setClasses(data)
-        // if (category) {
-        //   const filtered = data.filter(room => room.category === category)
-        //   setRooms(filtered)
-        // } else {
-        //   setRooms(data)
-        // }
-
+        
         setLoading(false)
       })
       .catch(err => console.log(err))
   }, [])
-//       .catch(err => console.log(err))
-//   }, [category])
 
-//   if (loading) {
-//     return <Loader />
-//   }
-  return (
-    
+  return (   
      <Container>
         <div className='pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4  gap-8'>
           {classes.map((cls, index) => (
