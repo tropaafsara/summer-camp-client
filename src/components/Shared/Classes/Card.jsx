@@ -8,7 +8,7 @@ import useClass from '../../../hooks/useClass'
 const Card = ({ cls, classData }) => {
 
   // console.log(classData);
-  const { user } = useContext(AuthContext)
+  const { role,user } = useContext(AuthContext)
   const { className, image, price, instructorName, seats, instructorEmail,totalStudents } = cls;
  const navigate = useNavigate()
   const location = useLocation();
@@ -16,7 +16,7 @@ const Card = ({ cls, classData }) => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const handleSelectClass = cls => {
-    if (seats === 0) {
+    if (seats === 0 || role==='admin' || role==='instructor') {
       setIsButtonDisabled(true);
       return;
     }

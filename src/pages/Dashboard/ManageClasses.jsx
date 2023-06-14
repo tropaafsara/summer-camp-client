@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Swal from 'sweetalert2';
+import FeedbackModal from '../../components/Modal/FeedbackModal';
 
 const ManageClasses = () => {
   const { data: classes = [], refetch } = useQuery(['classes'], async () => {
@@ -11,7 +12,6 @@ const ManageClasses = () => {
 
 
   const handleApprove = classes =>{
-        
     fetch(`https://summer-camp-school-server-peach.vercel.app/classes/approve/${classes._id}`, {
         method: 'PATCH'
     })
@@ -30,6 +30,26 @@ const ManageClasses = () => {
         }
     })
 }
+  const handleDeny = classes =>{
+    fetch(`https://summer-camp-school-server-peach.vercel.app/classes/deny/${classes._id}`, {
+        method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        if(data.modifiedCount){
+            refetch();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `Class Denied !`,
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+    })
+}
+
 
 
 
@@ -87,11 +107,19 @@ const ManageClasses = () => {
                     {
                       cls.status=='pending'?<>
                       <button onClick={()=>handleApprove(cls)} className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'>Approve</button>
-                      <button disabled className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'>Deny</button>
-                    <button disabled className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'> Feedback</button>
+                      <button onClick={()=>handleDeny(cls)} className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'>Deny</button>
+                    {/* <button disabled className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'> Feedback</button> */}
                       </>: <>
-                      
+                      <button disabled className='bg-gray-300 rounded p-1 text-slate'>Approve</button>
+                      <button disabled className='bg-gray-300 rounded p-1 text-slate'>Deny</button>
+                      {/* <button  className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'> Feedback</button> */}
                       </>
+                    }
+                    {
+                      cls.status=='denied'?<>
+                      {/* <button  className='bg-fuchsia-800 hover:bg-purple-800 rounded p-1 text-white'> Feedback</button> */}
+                      <FeedbackModal classId={cls._id} onFeedbackSent={refetch}></FeedbackModal>
+                      </>:<></>
                     }
                     
                     

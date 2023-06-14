@@ -36,11 +36,11 @@ const Navbar = () => {
             <Link to='/classes'>Classes</Link>
             {user && <Link to='/dashboard'>Dashboard</Link>}
             
-            {user && <div className='hidden md:block  '>
+            {/* {user && <div className='hidden md:block  '>
               {!role &&
                 <button className='cursor-pointer text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition' onClick={() => setModal(true)}
                   disabled={!user}>Become an Instructor</button>}
-            </div>}
+            </div>} */}
 
             {user ? (
               <div
