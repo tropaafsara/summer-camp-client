@@ -47,7 +47,7 @@ const ClassDataRow = ({ cls,fetchClasses}) => {
         <p className='text-gray-900 whitespace-no-wrap'>${cls?.price}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>{cls?.status}</p>
+        <p className='text-gray-900 whitespace-no-wrap'>{cls?.totalStudents}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>{cls?.status}</p>
@@ -56,7 +56,7 @@ const ClassDataRow = ({ cls,fetchClasses}) => {
         <p className='text-gray-900 whitespace-no-wrap'>{cls?.status}</p>
       </td>
       
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      {/* <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <span onClick={openModal} className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
           <span
             aria-hidden='true'
@@ -65,7 +65,7 @@ const ClassDataRow = ({ cls,fetchClasses}) => {
           <span className='relative'>Delete</span>
         </span>
         <DeleteModal isOpen={isOpen} closeModal={closeModal} modalHandler={modalHandler} id={cls._id}></DeleteModal>
-      </td>
+      </td> */}
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
           <span

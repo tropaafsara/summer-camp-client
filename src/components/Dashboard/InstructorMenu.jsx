@@ -38,7 +38,7 @@ const HostMenu = () => {
       >
         {/* <MdHomeWork className='w-5 h-5' /> */}
 
-        <span className='mx-4 font-medium'>My Listings</span>
+        <span className='mx-4 font-medium'>My Classes</span>
       </NavLink>
       <NavLink
         to='manage-bookings'
