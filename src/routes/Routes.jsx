@@ -16,11 +16,13 @@ import ManageUsers from "../pages/Dashboard/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import PopularInstructors from "../pages/Home/PopularInstructors";
 import MySelectedClasses from "../pages/Dashboard/MySelectedClasses";
+import ErrorPage from "../ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path:'/',
