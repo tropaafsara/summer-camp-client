@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../components/Shared/Classes/Card';
+import { Slide } from 'react-awesome-reveal';
 
 const PopularClasses = () => {
 
@@ -20,7 +21,10 @@ const PopularClasses = () => {
     return (
         
         <div>
+            <Slide>
             <h1 className='text-center text-3xl font-bold mb-7 mt-8'>Popular Classes</h1>
+            </Slide>
+            
             <hr />
             
             <div className='grid lg:grid-cols-4 md:grid-cols-2 ms-10 gap-6 mt-8 '>
