@@ -26,7 +26,7 @@ const Home = () => {
            <PopularClasses></PopularClasses>
            <h1 className='text-center text-3xl font-bold mb-7 mt-8'>Popular Instructors </h1>
             <hr />
-           <div className='grid lg:grid-cols-3 md:grid-cols-2 ms-10 gap-6'>
+           <div className='grid lg:grid-cols-3 md:grid-cols-2 ms-10 gap-6 mt-8'>
            {
                 displayedInstructors.map(item=><InstructorCard
                 key={item._id}

@@ -20,7 +20,7 @@ const PopularInstructors = () => {
         <div>
             <h1 className='text-center text-3xl font-bold mb-7'>Popular Instructors </h1>
             <hr />
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 ms-10 gap-6'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 ms-10 gap-6 mt-8'>
             {
                 // instructors.slice(0, 6).map(item=><InstructorCard
                 instructors.map(item=><InstructorCard
