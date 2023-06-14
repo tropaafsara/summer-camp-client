@@ -14,6 +14,7 @@
 * User Authentication: Firebase Authentication to allow users to sign up & log in. 
 * Single Page Application.
 * Private Route implementation. 
+* Axios & JWT implementation
 
 1. Student Dashboard 
     * Selected Class : Students selected classes with update, delete & pay button.
