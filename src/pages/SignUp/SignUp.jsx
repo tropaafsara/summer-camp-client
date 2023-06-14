@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { FcGoogle } from 'react-icons/fc'
-import { useContext, useRef } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { saveUser } from '../../api/auth'
@@ -17,8 +17,9 @@ const SignUp = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
+  const [passwordMatch, setPasswordMatch] = useState(true)
 
-  // Handle user registration
+
   const handleSubmit = event => {
     event.preventDefault()
     // const formData = new FormData(event.target);
@@ -26,13 +27,24 @@ const SignUp = () => {
     const name = event.target.name.value
     const email = event.target.email.value
     const password = event.target.password.value
+    const confirmPassword = event.target.confirmPassword.value
     const image = event.target.image.files[0]
     const formData = new FormData()
     formData.append('image', image)
 
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`
+
+
+    if (password !== confirmPassword) {
+      setPasswordMatch(false)
+      return
+    } else {
+      setPasswordMatch(true)
+    }
+
+
+
+    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY
+      }`
     fetch(url, {
       method: 'POST',
       body: formData,
@@ -158,6 +170,28 @@ const SignUp = () => {
                 placeholder='*******'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
               />
+            </div>
+            <div>
+              <div className='flex justify-between'>
+                <label htmlFor='password' className='text-sm mb-2'>
+                  Confirm Password
+                </label>
+              </div>
+              <input
+                type='password'
+                name='confirmPassword'
+                id='confirmPassword'
+                required
+                placeholder='*******'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
+              />
+
+              {!passwordMatch && (
+                <p className='text-sm text-red-500'>
+                  Your password does not match.
+                </p>
+              )}
+
             </div>
           </div>
 
