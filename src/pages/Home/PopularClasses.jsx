@@ -21,9 +21,9 @@ const PopularClasses = () => {
     return (
         
         <div>
-            <Slide>
-            <h1 className='text-center text-3xl font-bold mb-7 mt-8'>Popular Classes</h1>
-            </Slide>
+            
+            <h1 className='title'>Popular Classes</h1>
+           
             
             <hr />
             

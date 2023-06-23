@@ -4,6 +4,8 @@ import { AuthContext } from '../../../providers/AuthProvider'
 import Swal from 'sweetalert2'
 import { getClasses } from '../../../api/classes'
 import useClass from '../../../hooks/useClass'
+import { HiOutlineCheckCircle } from "react-icons/hi2";
+
 
 const Card = ({ cls, classData }) => {
 
@@ -64,7 +66,7 @@ const Card = ({ cls, classData }) => {
   }
 
 
-  const cardClassName = `col-span-1 cursor-pointer group p-4 ${seats === 0 ? 'bg-red-300' : ''}`;
+  const cardClassName = `rounded-lg  col-span-1 cursor-pointer group  ${seats === 0 ? 'bg-rose-200' : ''}`;
 
   return (
 
@@ -72,14 +74,14 @@ const Card = ({ cls, classData }) => {
       {/* <Link to={`/class/${cls._id}`} className='col-span-1 cursor-pointer group'> */}
      
       <div >
-        <div className='flex flex-col gap-2 w-full'>
+        <div className='flex flex-col gap-2 w-full '>
           <div
             className='
             aspect-square 
             w-full 
             relative 
             overflow-hidden 
-            rounded-xl
+            
           '
           >
             <img
@@ -98,29 +100,33 @@ const Card = ({ cls, classData }) => {
             absolute
             top-3
             right-3
+            
           '
             >
 
             </div>
           </div>
-          <div className='text-xl'>{cls.className}</div>
+<div className='p-4'>
+<div className='text-xl'>{cls.className}</div>
           <div className='font-semibold'>Instructor: {cls.instructorName}</div>
-          <div className='font-light text-neutral-500'>
+          <div className=''>
             Available seats: {cls.seats}
           </div>
-          <div className='font-light text-neutral-500'>
+          <div className=''>
             Total students: {cls.totalStudents}
           </div>
           <div className=''>
-            <div className='font-semibold'>$ {cls.price}</div>
+            <div className='font-semibold text-fuchsia-800 text-3xl'>$ {cls.price}</div>
 
           </div>
           
         </div>
-        <div className="flex justify-end">
-        <button onClick={() => handleSelectClass(cls)} className='rounded bg-slate-600 text-white px-3 flex justify-center '>select</button>
-    
+        <div className="flex justify-end mb-6">
+        
+        <button onClick={() => handleSelectClass(cls)} className='rounded text-4xl text-fuchsia-800  px-3 flex justify-center '><HiOutlineCheckCircle></HiOutlineCheckCircle></button>
+     
         </div>
+</div>
       </div>
       {/* <button onClick={() => handleSelectClass(cls)} className='rounded bg-slate-600 text-white px-2 flex justify-center '>select</button> */}
     

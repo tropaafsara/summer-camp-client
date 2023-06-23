@@ -3,8 +3,9 @@ const Footer = () => {
     return (
         <div className=''>
             <footer className="footer p-10 bg-base-200 text-base-content  text-black ">
-            <div>
-                <p>Melody Masters<br />Reliable  since 2010</p>
+            <div className="flex flex-col">
+                <p>Melodia <br />Copyright @2023  Melodia, Inc</p>
+                <p>All Rights Reserved</p>
             </div>
             <div>
                 <span className="footer-title">Products</span>
