@@ -4,7 +4,6 @@ import { AuthContext } from '../../../providers/AuthProvider'
 import Swal from 'sweetalert2'
 import { getClasses } from '../../../api/classes'
 import useClass from '../../../hooks/useClass'
-import { HiOutlineCheckCircle } from "react-icons/hi2";
 
 
 const Card = ({ cls, classData }) => {
@@ -66,15 +65,15 @@ const Card = ({ cls, classData }) => {
   }
 
 
-  const cardClassName = `rounded-lg  col-span-1 cursor-pointer group  ${seats === 0 ? 'bg-rose-200' : ''}`;
+  const cardClassName = ` rounded-lg  col-span-1 cursor-pointer group  ${seats === 0 ? 'bg-red-700' : ''}`;
 
   return (
 
     <div className={cardClassName}>
       {/* <Link to={`/class/${cls._id}`} className='col-span-1 cursor-pointer group'> */}
      
-      <div >
-        <div className='flex flex-col gap-2 w-full '>
+      <div className=''>
+        <div className='flex flex-col gap-2 w-full border rounded  shadow-2xl shadow-blue-900'>
           <div
             className='
             aspect-square 
@@ -90,7 +89,7 @@ const Card = ({ cls, classData }) => {
               h-full 
               w-full 
               group-hover:scale-110 
-              transition
+              transition duration-300 
             '
               src={cls.image}
               alt='Room'
@@ -107,23 +106,27 @@ const Card = ({ cls, classData }) => {
             </div>
           </div>
 <div className='p-4'>
-<div className='text-xl'>{cls.className}</div>
-          <div className='font-semibold'>Instructor: {cls.instructorName}</div>
+<div className='text-xl font-bold'>{cls.className}</div>
+          <div >Instructed By <span className='font-bold text-blue-900'>{cls.instructorName}</span></div>
           <div className=''>
-            Available seats: {cls.seats}
+            Available seats: <span className='font-bold'>{cls.seats}</span>
           </div>
           <div className=''>
-            Total students: {cls.totalStudents}
+            Total students: <span className='font-bold'>{cls.totalStudents}</span>
           </div>
           <div className=''>
-            <div className='font-semibold text-fuchsia-800 text-3xl'>$ {cls.price}</div>
+            <div className='font-semibold text-blue-900 text-3xl'>$ {cls.price}</div>
 
           </div>
           
         </div>
         <div className="flex justify-end mb-6">
         
-        <button onClick={() => handleSelectClass(cls)} className='rounded text-4xl text-fuchsia-800  px-3 flex justify-center '><HiOutlineCheckCircle></HiOutlineCheckCircle></button>
+        <button onClick={() => handleSelectClass(cls)} className='  rounded-full text-l text-white  bg-blue-900 p-2 me-4
+         '>Select class  </button>
+       
+        
+       
      
         </div>
 </div>

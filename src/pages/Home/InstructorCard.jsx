@@ -5,16 +5,27 @@ const InstructorCard = ({item}) => {
     return (
 
 
-<div className="card w-96 bg-base-100 shadow-xl w-300 h-400">
-  <figure className="px-10 pt-10">
-    <img src={imageUrl} alt="Shoes" className="rounded-xl  w-96 h-96" />
-  </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title"> {name}</h2>
-    <p>Piano Instructor</p>
-    {/* <p>{email}</p> */}
+
+
+
+
+
+<div className="card w-96 bg-base-100 shadow-xl">
+  <figure><img className='h-[400px] ' src={imageUrl} alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">
+    {name}
+    </h2>
+    <div className='flex items-center gap-6'>
+    <div className="card-actions justify-start">
+      <div className="badge badge-outline">Piano</div> 
+      <div className="badge badge-outline">Violin</div>
+      <div className="badge badge-outline">Vocal</div>
+      
+    </div>
     <div className="card-actions">
       <button className="btn   text-white ">See Classes</button>
+    </div>
     </div>
   </div>
 </div>

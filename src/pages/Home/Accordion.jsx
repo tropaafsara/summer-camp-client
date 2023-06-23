@@ -4,8 +4,11 @@ import Lottie from 'lottie-react'
 
 function Accordionn() {
     return (
+        <div>
+            <h2 className='title'>Frequently Asked Any Questions</h2>
+            <hr />
         <div className='flex items-center container mx-auto justify-between'>
-          
+        
             <div className='w-1/2 '>
             <div className="collapse collapse-plus bg-base-200 border-2 border-blue-900  mb-4">
                 <input type="radio" name="my-accordion-3"  />
@@ -57,6 +60,7 @@ function Accordionn() {
             
       <div className='w-1/3 '>
           <Lottie animationData={q} loop={true} />
+        </div>
         </div>
         </div>
     );

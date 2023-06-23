@@ -3,6 +3,8 @@ import { Slide } from 'react-awesome-reveal';
 
 const Newsletter = () => {
     return (
+      
+            
         <div className='p-8   text-center text-white bg-blue-900'>
           
             <h1 className='text-3xl font-bold text-center mb-8'>Want To Stay Informed?</h1>
@@ -14,6 +16,7 @@ const Newsletter = () => {
             <button className='border rounded-full border-white p-3 ' >Subscribe</button>
             </div>
         </div>
+      
     );
 };
 

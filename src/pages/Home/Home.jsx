@@ -54,7 +54,8 @@ const Home = () => {
         <div className='max-w-7xl mx-auto'>
         <MusicInstruments></MusicInstruments>
         </div>
-        <h2 className='title'>Frequently Asked Any Questions</h2>
+        
+        
         <Accordionn></Accordionn>
            <Newsletter></Newsletter>
            
