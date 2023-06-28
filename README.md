@@ -31,5 +31,5 @@
     * Manage Booked Class : Shows all the Classes booked by students including pending/ approved/ denied status, Total Enrolled Students, Feedback & Update button. 
 
 4. Admin Dashboard 
-    * Manage Classes 
-    * Manage Users 
+    * Admin has the power to approve/deny classes & provide feedback. Admins can also manage user roles, prompting users to admin/instructor 
+
