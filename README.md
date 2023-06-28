@@ -1,6 +1,6 @@
 # b712-summer-camp-client-side-tropaafsara
 
-# Website Name : Melody Masters
+# Website Name : Melodia
 # Live Website Link : https://summer-camp-school-c6599.web.app/
 * Admin Email : admin1@gmail.com	
 * Admin password : 123456
